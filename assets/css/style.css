@@ -1,0 +1,209 @@
+/* Variables */
+:root {
+  --color-main: #f1f5f9;  /* main text*/
+  --color-secondary: #94a3b8; /* secondary text */
+  --color-highlight: #38bdf8;   /* links and buttons */
+  --color-purple-highlight: #ba67e2; /* highlighted text */
+  --color-card: #1e293b; /* card background */
+  --color-background: #2d2c38;    /* general background */
+  --color-dark-background: #1d1c23;    /* secondary background */
+  --color-dark-rgb: 39, 38, 46; /* black RGB */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* VITAL: Evita que el padding agrande las cajas */
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 100vh;
+
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  line-height: 1.6;
+  color: var(--color-secondary);
+  background-color: rgb(var(--color-dark-rgb));
+}
+
+/* --- 2. Header y Navegación (Uso de FLEXBOX) --- */
+header {
+  background-color: var(--color-blanco);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 1rem 2rem;
+  background-color: rgb(var(--color-dark-rgb));
+  /* Flexbox: Alinea el Logo a la izq y el Menú a la der */
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  
+  /* Para que el menú se quede fijo arriba al hacer scroll */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.leyenda {
+  font-size: 0.9rem;
+  color: var(--color-secundario);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-primario);
+}
+
+nav ul {
+  list-style: none;
+  display: flex; /* Pone los items en fila */
+  gap: 20px;     /* Espacio entre botones */
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--color-secundario);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: var(--color-primario);
+}
+
+main {
+  flex: 1;
+  width: 100%;
+}
+
+section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto; /* Centra el contenido en pantallas grandes */
+}
+
+.hero {
+  background-color: var(--color-dark-background);
+  color: #ffffff;
+
+  height: 45vh;
+  width: 100%;
+  max-width: 100%; /* ignore the rule max-width of the section */
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center;     /* Centra verticalmente */
+  text-align: center;
+}
+
+.hero-highlighted { 
+  font-size: 20px;
+  color: var(--color-purple-highlight);
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* Espacio entre el icono y el texto del botón */
+}
+
+.btn-primario {
+  background-color: #7f3aa1;
+  color: white;
+}
+
+.btn-secundario {
+  background-color: transparent;
+  border: 2px solid #334155;
+  color: white;
+}
+
+.tech-stack {
+  display: flex;
+  gap: 2rem; /* Espacio entre iconos */
+  justify-content: center;
+  font-size: 2.5rem; /* Tamaño de los iconos */
+  color: #64748b;
+}
+
+h1 {
+  font-size: 3.5rem;
+  color: var(--color-main);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2rem;
+  color: var(--color-main);
+}
+
+/* --- 4. Galería de Proyectos (Uso de GRID) --- */
+.galeria-proyectos {
+  display: grid;
+  /* LA LÍNEA MÁGICA: Crea columnas automáticas.
+     Si la pantalla es chica, pone 1 col. Si es grande, pone 3. */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.tarjeta-proyecto {
+  background: var(--color-blanco);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.tarjeta-proyecto:hover {
+  transform: translateY(-5px); /* Efecto de elevación */
+}
+
+.tarjeta-proyecto img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover; /* Evita que la imagen se deforme */
+}
+
+.contenido-tarjeta {
+  padding: 1.5rem;
+}
+
+footer {
+  background-color: var(--color-dark-background);
+  color: var(--color-main);
+  text-align: center;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+/* --- 6. Media Queries (Ajustes para Celular) --- */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column; /* Pone el logo arriba del menú */
+    gap: 1rem;
+  }
+}
