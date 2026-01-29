@@ -1,7 +1,7 @@
 /* Variables */
 :root {
   --color-main: #f1f5f9;  /* main text*/
-  --color-secondary: #94a3b8; /* secondary text */
+  --color-secondary: #d7d7d7; /* secondary text */
   --color-highlight: #38bdf8;   /* links and buttons */
   --color-purple-highlight: #ba67e2; /* highlighted text */
   --color-card: #1e293b; /* card background */
@@ -10,12 +10,14 @@
   --color-dark-rgb: 39, 38, 46; /* black RGB */
 }
 
+/* global rules*/
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* VITAL: Evita que el padding agrande las cajas */
+  box-sizing: border-box;
 }
 
+/* base */
 body {
   display: flex;
   flex-direction: column;
@@ -28,7 +30,7 @@ body {
   background-color: rgb(var(--color-dark-rgb));
 }
 
-/* --- 2. Header y Navegación (Uso de FLEXBOX) --- */
+/*  Header */
 header {
   background-color: var(--color-blanco);
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
