@@ -30,6 +30,16 @@ body {
   background-color: rgb(var(--color-dark-rgb));
 }
 
+/* Animation scroll*/
+@keyframes nav-scroll {
+    to {
+        background-color: #4f1e67;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        padding: 0.8rem 2rem;
+    }
+}
+
 /*  Header */
 header {
   background-color: var(--color-blanco);
@@ -44,6 +54,10 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
+
+  animation: nav-scroll linear both; 
+  animation-timeline: scroll();
+  animation-range: 0px 200px;
 }
 
 .profile {
